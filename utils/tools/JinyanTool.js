@@ -27,6 +27,8 @@ export class JinyanTool extends AbstractTool {
 
   func = async function (opts) {
     let { qq, groupId, time = '600', sender, isAdmin, isPunish } = opts
+    logger.info(`jinyan: ${qq} - ${groupId} - ${time} - ${sender} - ${isAdmin} - ${isPunish}`)
+
     let group = await Bot.pickGroup(groupId)
     time = parseInt(time.trim())
     if (time < 60 && time !== 0) {
