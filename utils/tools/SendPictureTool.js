@@ -23,10 +23,10 @@ export class SendPictureTool extends AbstractTool {
 
   func = async function (opt) {
     let { picture, groupId, qq } = opt
-    if (qq) {
-      let avatar = `https://q1.qlogo.cn/g?b=qq&s=0&nk=${qq}`
-      picture += (' ' + avatar)
-    }
+    // if (qq) {
+    //   let avatar = `https://q1.qlogo.cn/g?b=qq&s=0&nk=${qq}`
+    //   picture += (' ' + avatar)
+    // }
     let pictures = picture.trim().split(' ')
     pictures = pictures.map(img => segment.image(img))
     let groupList = await Bot.getGroupList()

@@ -2005,8 +2005,10 @@ export class chatgpt extends plugin {
             if (botInfo.role !== 'member') {
               // 管理员才给这些工具
               tools.push(...[new EditCardTool(), new JinyanTool(), new KickOutTool(), new HandleMessageMsgTool()])
+              // 群id漏掉了
+              option.systemMessage += `\nthe GroupId is ${e.group_id}"\n`
+              
               // 用于撤回和加精的id
-
               if (e.source?.seq) {
                 let source = (await e.group.getChatHistory(e.source?.seq, 1)).pop()
                 option.systemMessage += `\nthe last message is replying to ${source.message_id}, the content is "${source?.raw_message}"\n`
